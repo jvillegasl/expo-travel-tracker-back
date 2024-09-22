@@ -1,11 +1,11 @@
 {
-    "name": "back",
+    "name": "expo-travel-tracker-back",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon api/index.ts",
+        "dev": "nodemon api/server.ts",
         "pretty": "prettier '**/*.{js,ts,mjs,cjs,json}' --write"
     },
     "keywords": [],

@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { loginSchema, signupSchema } from "./schemas";
 import { JWT_SECRET, SALT_ROUNDS } from "./constants";
+import { JWTPayload } from "../../types/jwt";
 
 const authRouter = Router();
 
@@ -45,7 +46,8 @@ authRouter.post("/login", async (req, res) => {
         return res.status(401).json({ message: "Wrong password" });
     }
 
-    const token = jwt.sign({ username: data.username }, JWT_SECRET, { expiresIn: "1h" });
+    const payload: JWTPayload = { username: data.username };
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
 
     return res.status(200).json({ token });
 });

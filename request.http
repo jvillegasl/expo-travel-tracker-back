@@ -1,0 +1,28 @@
+@URL = http://localhost:3000
+
+POST {{URL}}/auth/signup
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "User01",
+    "password": "12345678",
+    "confirmPassword": "12345678"
+}
+
+###
+
+POST {{URL}}/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "User01",
+    "password": "12345678"
+}
+
+###
+
+GET {{URL}}/auth/protected
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzAyNzQ2NiwiZXhwIjoxNzI3MDMxMDY2fQ.tBoNFJfrFg5qabKGNLcLtalrNQJ3YdPDugcoGrDvMH8

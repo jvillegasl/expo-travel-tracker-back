@@ -1,5 +1,6 @@
 import express from "express";
 import authRouter from "./auth";
+import travelRouter from "./travel";
 
 const app = express();
 
@@ -10,5 +11,6 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/auth", authRouter);
+app.use("/auth/travel", travelRouter);
 
 export default app;

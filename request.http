@@ -23,6 +23,19 @@ Content-Type: application/json
 
 ###
 
-GET {{URL}}/auth/protected
+GET {{URL}}/auth/travel
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzAyNzQ2NiwiZXhwIjoxNzI3MDMxMDY2fQ.tBoNFJfrFg5qabKGNLcLtalrNQJ3YdPDugcoGrDvMH8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzAzODYzMywiZXhwIjoxNzI3MDQyMjMzfQ.wIjLneoUN11fSJC8P3_GoMewWSt_dzf-eOPEWlXyKRc
+
+###
+
+POST {{URL}}/auth/travel
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzAzODYzMywiZXhwIjoxNzI3MDQyMjMzfQ.wIjLneoUN11fSJC8P3_GoMewWSt_dzf-eOPEWlXyKRc
+
+{
+    "description": "Test travel",
+    "plannedStartDate": "2024-09-22T14:30:00-0500",
+    "plannedEndDate": "2024-09-22T13:52:00-0500"
+}

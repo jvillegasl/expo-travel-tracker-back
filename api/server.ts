@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 
-dotenv.config({ path: ".env.development.local" });
-
 import app from ".";
+
+dotenv.config({ path: ".env.development.local" });
 
 const PORT = process.env.PORT || 3000;
 

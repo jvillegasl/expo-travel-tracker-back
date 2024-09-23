@@ -1,10 +1,11 @@
 import { sql } from "@vercel/postgres";
-import { Router } from "express";
 import bcrypt from "bcrypt";
+import { Router } from "express";
 import jwt from "jsonwebtoken";
-import { loginSchema, signupSchema } from "./schemas";
-import { JWT_SECRET, SALT_ROUNDS } from "./constants";
+
 import { JWTPayload } from "../../types/jwt";
+import { JWT_SECRET, SALT_ROUNDS } from "./constants";
+import { loginSchema, signupSchema } from "./schemas";
 
 const authRouter = Router();
 

@@ -1,5 +1,6 @@
-import "reflect-metadata";
 import express from "express";
+import "reflect-metadata";
+
 import authRouter from "./auth";
 import travelRouter from "./travel";
 

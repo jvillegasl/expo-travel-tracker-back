@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { DateTimeOffset } from "../../lib/models/dateTimeOffset";
 
 export const newTravelSchema = z

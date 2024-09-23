@@ -1,11 +1,12 @@
-import "reflect-metadata";
-import { Router } from "express";
-import authMiddleware from "../auth/authMiddleware";
 import { sql } from "@vercel/postgres";
-import { newTravelSchema } from "./schemas";
-import { Travel } from "../../types/models/travel";
-import { Expose, plainToInstance } from "class-transformer";
+import { plainToInstance } from "class-transformer";
+import { Router } from "express";
+import "reflect-metadata";
+
 import { TravelDTO } from "../../types/DTOs/travelDTO";
+import { Travel } from "../../types/models/travel";
+import authMiddleware from "../auth/authMiddleware";
+import { newTravelSchema } from "./schemas";
 
 const travelRouter = Router();
 

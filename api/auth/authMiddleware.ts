@@ -1,7 +1,8 @@
 import { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "./constants";
+
 import { JWTPayload } from "../../types/jwt";
+import { JWT_SECRET } from "./constants";
 
 const authMiddleware: RequestHandler = (req, res, next) => {
     const header = req.header("Authorization") || "";

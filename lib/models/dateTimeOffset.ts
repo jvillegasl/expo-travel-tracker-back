@@ -50,4 +50,8 @@ export class DateTimeOffset {
     utcOffset() {
         return this._moment.utcOffset();
     }
+
+    toJSON() {
+        return this.format();
+    }
 }

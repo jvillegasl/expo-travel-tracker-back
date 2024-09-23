@@ -1,7 +1,11 @@
+import "reflect-metadata";
 import { Router } from "express";
 import authMiddleware from "../auth/authMiddleware";
 import { sql } from "@vercel/postgres";
 import { newTravelSchema } from "./schemas";
+import { Travel } from "../../types/models/travel";
+import { Expose, plainToInstance } from "class-transformer";
+import { TravelDTO } from "../../types/DTOs/travelDTO";
 
 const travelRouter = Router();
 
@@ -10,7 +14,7 @@ travelRouter.use(authMiddleware);
 travelRouter.get("/", async (req, res) => {
     const user = req.user!;
 
-    const queryResults = await sql<{ id: number; description: string; planned_start_date: string; planned_end_date: string }>`
+    const queryResults = await sql<Travel>`
         SELECT
             T.*
         FROM Travel AS T
@@ -20,7 +24,9 @@ travelRouter.get("/", async (req, res) => {
 
     const travels = queryResults.rows;
 
-    return res.status(200).json({ travels });
+    const travelsDTOs = plainToInstance(TravelDTO, travels, { excludeExtraneousValues: true });
+
+    return res.status(200).json({ travels: travelsDTOs });
 });
 
 travelRouter.post("/", async (req, res) => {

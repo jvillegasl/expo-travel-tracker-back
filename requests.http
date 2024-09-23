@@ -25,7 +25,7 @@ Content-Type: application/json
 
 GET {{URL}}/auth/travel
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzAzODYzMywiZXhwIjoxNzI3MDQyMjMzfQ.wIjLneoUN11fSJC8P3_GoMewWSt_dzf-eOPEWlXyKRc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlVzZXIwMSIsImlhdCI6MTcyNzA2Mjk3MywiZXhwIjoxNzI3MDY2NTczfQ.W82yaCMfIcLiqOM_PTTkgzvgTu3Xi2awQe3NFOf0oKU
 
 ###
 

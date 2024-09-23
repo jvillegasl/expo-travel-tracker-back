@@ -27,7 +27,7 @@ travelRouter.get("/", async (req, res) => {
 
     const travelsDTOs = plainToInstance(TravelDTO, travels, { excludeExtraneousValues: true });
 
-    return res.status(200).json({ travels: travelsDTOs });
+    return res.status(200).json(travelsDTOs);
 });
 
 travelRouter.post("/", async (req, res) => {

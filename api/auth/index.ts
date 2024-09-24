@@ -4,7 +4,6 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 
 import { JWTPayload } from "../../types/jwt";
-import { JWT_SECRET, SALT_ROUNDS } from "./constants";
 import { loginSchema, signupSchema } from "./schemas";
 
 const authRouter = Router();
@@ -20,7 +19,7 @@ authRouter.post("/signup", async (req, res) => {
 
     const data = validationResults.data;
 
-    const hashedPassword = await bcrypt.hash(data.password, SALT_ROUNDS);
+    const hashedPassword = await bcrypt.hash(data.password, Number(process.env.JWT_SALT_ROUNDS));
 
     await sql`INSERT INTO AppUser (Username, Password) VALUES (${data.username}, ${hashedPassword})`;
 
@@ -48,7 +47,7 @@ authRouter.post("/login", async (req, res) => {
     }
 
     const payload: JWTPayload = { username: data.username };
-    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
 
     return res.status(200).json({ token });
 });

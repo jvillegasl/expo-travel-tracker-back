@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 
 import { JWTPayload } from "../../types/jwt";
-import { JWT_SECRET } from "./constants";
 
 const authMiddleware: RequestHandler = (req, res, next) => {
     const header = req.header("Authorization") || "";
@@ -13,7 +12,7 @@ const authMiddleware: RequestHandler = (req, res, next) => {
     }
 
     try {
-        const payload = jwt.verify(token, JWT_SECRET) as JWTPayload;
+        const payload = jwt.verify(token, process.env.JWT_SECRET) as JWTPayload;
         req.user = payload;
         next();
     } catch (error) {
